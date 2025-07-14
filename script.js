@@ -40,6 +40,7 @@ function operate(operator, a, b) {
 const display = document.getElementById('display');
 const buttons = document.querySelectorAll('.button');
 let displayValue = '';
+let waitingForSecondNumber = false;
 
 buttons.forEach(button => {
     button.addEventListener('click', () => {
@@ -53,7 +54,32 @@ buttons.forEach(button => {
             firstNumber = null;
             operator = null;
             secondNumber = null;
+            waitingForSecondNumber = false;
             display.value = '';
+        } else if (['+', '-', '*', '/'].includes(value)) {
+            //operator pressed
+            if (firstNumber === null) {
+                firstNumber = parseFloat(displayValue);
+        } else if (operator && displayValue !== ''){
+            // If chaining operations, calculate previous result first
+            secondNumber = parseFloat(displayValue);
+            firstNumber = operate(operator, firstNumber, secondNumber);
+            display.value = firstNumber;
         }
+        operator = value;
+        displayValue = '';
+        waitingForSecondNumber = true;
+    } else if (value === '=') {
+        if (operator && displayValue !== '') {
+            secondNumber = parseFloat(displayValue);
+            const result = operate(operator, firstNumber, secondNumber);
+            display.value = result;
+            // Reset for next calculation
+            firstNumber = result;
+            operator = null;
+            displayValue = '';
+        }
+    }
     });
 });
+// Step 6: Make calculator work
