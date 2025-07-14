@@ -35,3 +35,25 @@ function operate(operator, a, b) {
             return null;
     }
 }
+
+// Step 5: Populate display when digit buttons are clicked
+const display = document.getElementById('display');
+const buttons = document.querySelectorAll('.button');
+let displayValue = '';
+
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        const value = button.textContent;
+
+        if (!isNaN(value) || value === '.') {
+            displayValue += value;
+            display.value = displayValue;
+        } else if (value === 'C') {
+            displayValue = '';
+            firstNumber = null;
+            operator = null;
+            secondNumber = null;
+            display.value = '';
+        }
+    });
+});
