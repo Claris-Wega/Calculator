@@ -1,0 +1,13 @@
+.calculator {
+    width: 220px;
+    height: 40px;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    text-align: right;
+}
+.button {
+    width 45px;
+    height: 45px;
+    margin: 2px;
+    font-size: 1.2em;
+}
