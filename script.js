@@ -82,4 +82,25 @@ buttons.forEach(button => {
     }
     });
 });
-// Step 6: Make calculator work
+// Step 6: Add keyboard support
+document.getElementById('backspace').addEventListener('click', () => {
+    displayValue = displayValue.slice(0, -1);
+    display.value = displayValue;
+});
+// Add keyboard support
+document.addEventListener('keydown', (event) => {
+    const key = event.key;
+    if (! isNaN(key)) {
+        displayValue += key;
+        display.value = displayValue;
+    } else if (key === '.' && !displayValue.includes('.')) {
+        displayValue += '.';
+        display.value = displayValue;
+    } else if (['+', '-', '*', '/'].includes(key)) {
+    } else if (key === 'Enter' || key === '='){
+    } else if (key === 'Backspace') {
+        displayValue = displayValue.slice(0, -1);
+        display.value = displayValue;
+    } else if (key.toLowerCase() === 'c'){
+    }
+});

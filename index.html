@@ -9,28 +9,33 @@
 <body>
     <div class="calculator">
         <input type="text" class="display" id="display" value="12345" disabled>
-        <br>
-        <button class="button">7</button>
-        <button class="button">8</button>
-        <button class="button">9</button>
-        <button class="button">/</button>
-        <br>
-        <button class="button">4</button>
-        <button class="button">5</button>
-        <button class="button">6</button>
-        <button class="button">*</button>
-        <br>
-        <button class="button">1</button>
-        <button class="button">2</button>
-        <button class="button">3</button>
-        <button class="button">-</button>
-        <br>
-        <button class="button">0</button>
-        <button class="button">.</button>
-        <button class="button" id="equals">=</button>
-        <button class="button">+</button>
-        <br>
-        <button class="button" id="clear">C</button>
+        <div class="buttons-grid">
+            <br>
+            <button class="button clear" id="clear">C</button>
+            <button class="button" id="backspace">&#x232B</button>
+            <button class="button operator">/</button>
+            
+            
+            <button class="button">7</button>
+            <button class="button">8</button>
+            <button class="button">9</button>
+            <button class="button operator">*</button>
+            
+            <button class="button">4</button>
+            <button class="button">5</button>
+            <button class="button">6</button>
+            <button class="button operator">-</button>
+            
+            <button class="button">1</button>
+            <button class="button">2</button>
+            <button class="button">3</button>
+            <button class="button operator">+</button>
+            
+            <button class="button zero">0</button>
+            <button class="button" id="decimal">.</button>
+            <button class="button equals" id="equals">=</button>
+            
+        </div>
     </div>
 
     <script src="script.js"></script>
